@@ -1,0 +1,31 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       Int    @id @default(autoincrement())
+  email    String @unique
+  password String
+  trades   Trade[]
+  
+  @@map("users")
+}
+
+model Trade {
+  id        Int      @id @default(autoincrement())
+  type      String   // "buy" or "sell"
+  userId    Int      @map("user_id")
+  symbol    String   // e.g., "AAPL"
+  shares    Int      // between 1 and 100
+  price     Float
+  timestamp DateTime @default(now())
+  
+  user User @relation(fields: [userId], references: [id])
+  
+  @@map("trades")
+} 
