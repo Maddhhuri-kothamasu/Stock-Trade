@@ -1,10 +1,10 @@
-# 📈 Stock Trades REST API
+#  Stock Trades REST API
 
-A production-ready REST API for managing stock trades with JWT-based authentication. Built with modern Node.js ecosystem technologies, demonstrating enterprise-grade architecture, security, and performance optimization.
+A production-ready REST API for managing stock trades with JWT-based authentication. Built with modern Node.js ecosystem technologies, demonstrating readability, maintainability
 
-## 🚀 Features & Technology Stack
+## Technology Stack
 
-### **🔐 Authentication & Security**
+### ** Authentication & Security**
 - **JWT (JSON Web Tokens) v9.0.2** - Stateless authentication with dual-token system
   - **Access Tokens**: 10-minute expiry for API access (configurable via `JWT_ACCESS_EXPIRY`)
   - **Refresh Tokens**: 7-day expiry for token renewal (configurable via `JWT_REFRESH_EXPIRY`)
@@ -19,7 +19,7 @@ A production-ready REST API for managing stock trades with JWT-based authenticat
 - **CORS v2.8.5** - Cross-Origin Resource Sharing configuration
   - **Purpose**: Enables secure frontend integration while preventing CSRF
 
-### **👤 User Management System**
+### ** User Management System**
 - **Email-based Authentication** - Unique email constraint with validation
   - **Purpose**: User identification and login credential
 - **Password Security** - Minimum 6-character requirement with bcrypt hashing
@@ -27,7 +27,7 @@ A production-ready REST API for managing stock trades with JWT-based authenticat
 - **User Context** - JWT payload includes userId and email for request context
   - **Purpose**: Request attribution without database lookups
 
-### **📊 Trade Management Engine**
+### ** Route Management Engine**
 - **CRUD Operations** - Create and Read operations only (as per specification)
   - **POST /trades** - Create new trades with full validation
   - **GET /trades** - Retrieve all trades with optional filtering
@@ -40,7 +40,7 @@ A production-ready REST API for managing stock trades with JWT-based authenticat
   - Stock symbol normalization (uppercase conversion)
 - **Data Relationships** - Foreign key relationship between users and trades
 
-### **✅ Input Validation & Data Integrity**
+### **Input Validation & Data Integrity**
 - **Joi v17.11.0** - Schema-based validation library
   - **Request Body Validation** - JSON payload validation for POST requests
   - **Query Parameter Validation** - URL query validation for GET requests  
@@ -49,7 +49,7 @@ A production-ready REST API for managing stock trades with JWT-based authenticat
 - **Data Sanitization** - Automatic type conversion and format standardization
 - **Business Rule Enforcement** - Schema-level business logic validation
 
-### **🗄️ Database & ORM**
+### **Database & ORM**
 - **MySQL v8.0+** - Relational database with ACID compliance
   - **Connection Pooling** - Prisma manages connection pool (9 connections default)
   - **Transaction Support** - Atomic operations for data consistency
@@ -60,7 +60,7 @@ A production-ready REST API for managing stock trades with JWT-based authenticat
   - **Query Builder** - Type-safe database queries with IntelliSense
   - **Purpose**: Eliminates SQL injection, provides type safety, simplifies database operations
 
-### **🧪 Testing Infrastructure**
+### **Testing Infrastructure**
 - **Jest v29.7.0** - Testing framework with:
   - **Unit Tests** - Individual function and middleware testing
   - **Integration Tests** - Full API endpoint testing
@@ -70,13 +70,13 @@ A production-ready REST API for managing stock trades with JWT-based authenticat
   - **API Endpoint Testing** - Real HTTP request/response testing
   - **Purpose**: End-to-end API testing without manual testing
 
-## 🏗️ System Architecture
+##  System Architecture
 
 ### **Multi-Layer Architecture**
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │                     CLIENT LAYER                            │
-│  Web Apps • Mobile Apps • API Testing Tools • CLI Tools    │
+│  
 └─────────────────────┬───────────────────────────────────────┘
                       │ HTTP/HTTPS Requests
 ┌─────────────────────▼───────────────────────────────────────┐
@@ -91,26 +91,26 @@ A production-ready REST API for managing stock trades with JWT-based authenticat
                       │ Authenticated Requests
 ┌─────────────────────▼───────────────────────────────────────┐
 │                 VALIDATION LAYER                            │
-│  Joi Schemas • Business Rules • Data Sanitization          │
+│          Joi Schemas  • Data Sanitization
 └─────────────────────┬───────────────────────────────────────┘
                       │ Validated Data
 ┌─────────────────────▼───────────────────────────────────────┐
-│                 BUSINESS LOGIC LAYER                        │
-│  Route Handlers • Controllers • Service Logic               │
+│                 ROUTE HANDLER
+│          Route Handlers • api End Points
 └─────────────────────┬───────────────────────────────────────┘
                       │ Database Operations
 ┌─────────────────────▼───────────────────────────────────────┐
 │                  DATA ACCESS LAYER                          │
-│  Prisma ORM • Query Builder • Transaction Management        │
+│                    Prisma ORM
 └─────────────────────┬───────────────────────────────────────┘
                       │ SQL Queries
 ┌─────────────────────▼───────────────────────────────────────┐
 │                   DATABASE LAYER                            │
-│  MySQL 8.0 • Connection Pool • ACID Transactions           │
+│                    MySQL 8.0       
 └─────────────────────────────────────────────────────────────┘
 ```
 
-## 📊 Data Architecture
+##  Data Architecture
 
 ### **Prisma Schema Configuration**
 ```prisma
@@ -200,7 +200,7 @@ model Trade {
 }
 ```
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### **1. Installation**
 ```bash
@@ -231,27 +231,27 @@ npm run dev
 curl http://localhost:3000/health
 ```
 
-## 🧪 Testing
+##  Testing
 
 ```bash
 npm test                 # Run all tests
 npm test -- --coverage  # Run with coverage
 ```
 
-## 📋 API Endpoints
+##  API Endpoints
 
 ### **Authentication**
 - `POST /signup` - Create user account
 - `POST /login` - User authentication
 - `POST /token/refresh` - Refresh access token
 
-### **Trades (Protected)**
+### **Routes (Protected)**
 - `POST /trades` - Create new trade
 - `GET /trades` - Get all trades (with filtering)
 - `GET /trades/:id` - Get specific trade
 - `PUT/PATCH/DELETE /trades/:id` - Returns 405
 
-## 🔧 Technologies Used
+## Technologies Used
 
 | Technology | Version | Purpose |
 |------------|---------|---------|
@@ -268,5 +268,3 @@ npm test -- --coverage  # Run with coverage
 | **Nodemon** | v3.0.1 | Development server hot-reload |
 
 ---
-
-**🎯 Built with enterprise-grade architecture for production deployment, scalability, and maintainability.** 
